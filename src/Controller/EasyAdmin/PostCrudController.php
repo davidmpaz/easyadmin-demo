@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CodeEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -56,5 +57,9 @@ class PostCrudController extends AbstractCrudController
         yield AssociationField::new('comments')->onlyOnIndex();
         yield DateTimeField::new('publishedAt');
         yield AssociationField::new('tags')->hideOnIndex();
+        yield ChoiceField::new('icons')
+            ->setChoices(['<i class="menu-icon fa-fw far fa-comments"></i>' => 'icon_set_1_icon-1'])
+            ->renderExpanded()
+            ->allowMultipleChoices();
     }
 }

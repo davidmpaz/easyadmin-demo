@@ -97,6 +97,8 @@ class Post
      */
     private Collection $comments;
 
+    private string $icons;
+
     /**
      * @var Tag[]|Collection
      *
@@ -214,5 +216,21 @@ class Post
     public function getTags(): Collection
     {
         return $this->tags;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIcons(): string
+    {
+        return $this->icons;
+    }
+
+    /**
+     * @param string $icons
+     */
+    public function setIcons(string $icons): void
+    {
+        $this->icons = $icons;
     }
 }
