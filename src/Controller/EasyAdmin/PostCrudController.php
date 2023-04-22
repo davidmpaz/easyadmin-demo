@@ -58,7 +58,10 @@ class PostCrudController extends AbstractCrudController
         yield DateTimeField::new('publishedAt');
         yield AssociationField::new('tags')->hideOnIndex();
         yield ChoiceField::new('icons')
-            ->setChoices(['<i class="menu-icon fa-fw far fa-comments"></i>' => 'icon_set_1_icon-1'])
+            ->setChoices([
+                '<i class="menu-icon fa-fw far fa-comments"></i><span>Comments</span>' => 'icon_set_1_icon-1'
+            ])
+            ->setFormTypeOption('label_html', true)
             ->renderExpanded()
             ->allowMultipleChoices();
     }
